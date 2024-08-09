@@ -2,19 +2,19 @@ import json
 import os
 
 class JsonKu:
-    def __init__(self, filepath):
-        self.filepath = filepath
+    def __init__(self, nama_file):
+        self.nama_file = nama_file
     
     def baca(self):
-        if os.path.exists(self.filepath):
-            with open(self.filepath, 'r') as file:
+        if os.path.exists(self.nama_file):
+            with open(self.nama_file, 'r') as file:
                 data = json.load(file)
                 return data
         else:
             return {}
 
     def tulis(self, data):
-        with open(self.filepath, 'w') as file:
+        with open(self.nama_file, 'w') as file:
             json.dump(data, file, indent=5)
     
     def update(self, key, value):
@@ -33,8 +33,8 @@ class JsonKu:
 # Program utama 
 if __name__ == "__main__":
     # menyimpan lokasi file 
-    filepath = 'data.json'
-    json_ku = JsonKu(filepath)
+    nama_file = 'data.json'
+    json_ku = JsonKu(nama_file)
     # menulis data awal
     data_utama = {
         "Nama": "Keysa ghea",
